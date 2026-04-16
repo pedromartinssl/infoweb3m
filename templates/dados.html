@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="{{url_for('recebedados')}}" method="post">
+        Nome: <br>
+        <input type="text" name="nome"> <br>
+        Sobrenome: <br>
+        <input type="text" name="sobrenome"> <br>
+        Email: <br>
+        <Input type="text" name="email"> <br>
+        Data de nascimento: <br>
+        <Input type="text" name="datanasc"> <br>
+
+        Stand: <br>
+        <Select name="stand">
+            <option value="SP">Star Platinum</option>
+            <option value="TW">The World</option>
+            <option value="KQ">Killer Queen</option>
+        </Select> <br>
+
+        Parte: <br>
+        <input type="radio" name="part" value="Stardust Crusaders">Parte 3 <br>
+        <input type="radio" name="part" value="Stone Ocean">Parte 6 <br>
+        <input type="radio" name="part" value="Stell Ball Run">Parte 7 <br>
+
+        Poder: <br>
+        <input type="checkbox" value="Time-Stop" name="poder">Time-Stop <br>
+        <input type="checkbox" value="Bites The Dust" name="poder">Bites The Dust <br>
+        <input type="checkbox" value="Return to Zero" name="poder">Return to Zero <br>
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+
+</html>
