@@ -81,5 +81,21 @@ def arearestrita():
 def acessonegado():
     return render_template('acessonegado.html')
 
+@app.route('/exemplolaco')
+def exemplolaco():
+    return render_template('exemplolaco.html')
+
+@app.route('/produtos')
+def produtos():
+    itens = [   
+                {'nome':'teclado ', 'preco':'200', 'categoria':'computador', 'imagem':'https://product-data.raiadrogasil.io/images/17272704.webp'},
+                {'nome':'smartphone ', 'preco':'1500', 'categoria':'celular', 'imagem':'https://m.magazineluiza.com.br/a-static/420x420/camiseta-dry-fit-preta-caveira-dark-lab/trevizosuplementos/9118-1/142392a2b4c55f9b0b7bb56b90c3649e.jpeg'},
+                {'nome':'pen-drive ', 'preco':'50',  'categoria':'computador', 'imagem':'https://redeciadasaude.cdn.magazord.com.br/img/2024/07/produto/2682/creatina-nature-8-2.jpg?ims=600x600'}
+             ]
+
+    qtd = len(itens)
+
+    return render_template('produtos.html', itens=itens, qtd = qtd)
+
 if __name__ == '__main__':
     app.run(debug=True)
