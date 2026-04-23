@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, redirect
 from datetime import datetime
 
 app = Flask('__name__')
@@ -47,6 +47,39 @@ def compras():
 def recebecompras():
     itens = request.form.getlist('item')
     return render_template('lista.html', itens=itens)
+
+@app.route('/verificaridade/<int:idade>')
+def verificaridade(idade):
+    if idade >= 18:
+        return 'Você é MAIOR de idade'
+    else:
+        return 'Você é MENOR de idade'
+
+@app.route('/verificaridade2/<int:idade>')
+def verificaridade2(idade):
+    return render_template('idade.html', idade=idade)
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/verificarlogin', methods=['POST'])
+def verificarlogin():
+    usuario = request.form.get('login')
+    senha = request.form.get('senha')
+
+    if usuario == 'admin' and senha == '12345':
+        return redirect(url_for('arearestrita'))
+    else:
+        return redirect(url_for('acessonegado'))
     
+@app.route('/arearestrita')
+def arearestrita():
+    return render_template('arearestrita.html')
+
+@app.route('/acessonegado')
+def acessonegado():
+    return render_template('acessonegado.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
